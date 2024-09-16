@@ -41,6 +41,7 @@ how things already are (and have already been for 20 odd years), and a useful re
 - [Language Internals](#language-internals)
   - [Bytecode VM](#bytecode-vm)
     - [Opcodes](#opcodes)
+- [Pitfalls](#pitfalls)
 
 
 ## Syntax and Conventions
@@ -479,4 +480,12 @@ Nasal uses a bytecode VM that implements almost 60 opcodes.
 | 54 | OP_BIT_AND   | | |
 | 55 | OP_BIT_OR    | | |
 | 56 | OP_BIT_XOR   | | |
-| 57 | OP_BIT_NE    | | | 
+| 57 | OP_BIT_NE    | | |
+
+## Pitfalls
+
+Nasal is not a particularly strict language. During the writing of this specification, as well as the development of the ANTLR grammar for Nasal, a number of questionable yet syntactically-valid code snippets have been discovered:
+
+```
+var x = func;
+```
